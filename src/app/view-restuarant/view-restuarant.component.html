@@ -1,0 +1,125 @@
+<!-- product section-->
+<section class="py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6">
+        <img class="card-img-top mb-5 mb-md-0 rounded w-75 border border-light p-2" src={{restDetails.photograph}}
+          alt="no image" />
+      </div>
+
+      <div class="col-md-6">
+        <div class="small mb-1">ID : {{restDetails.id}}</div>
+        <h1 class="display-5 fw-bolder"> {{restDetails.name}}</h1>
+
+        <!--update and delete link-->
+
+        <div class="fs-5 mb-2">
+          <a routerLink="/update-restuarant/{{restDetails.id}}">Update Restuarant</a> |
+          <a routerLink="/delete-restuarant/{{restDetails.id}}">Delete Restuarant</a>
+        </div>
+
+
+
+
+
+
+        <div class=" fs-5 mb-2">
+          <!--neighborhood-->
+          <p class="lead">
+            <strong>NEIGHBORHOOD</strong> : {{restDetails.neighborhood}}
+          </p>
+
+          <!-- cuisine type-->
+          <p class="lead">
+            <strong>CUISINE TYPE</strong> : {{restDetails.cuisine_type}}
+          </p>
+
+          <!--address-->
+          <p class=" lead">
+            <strong>ADDRESS</strong> : {{restDetails.address}}
+          </p>
+        </div>
+
+
+
+
+        <!-- operating hours -->
+        <!-- Button trigger modal -->
+
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Operating Hours
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">OPERATING HOURS</h1>
+                <button type="button" class="btn-close btn btn-light" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+
+              <div class="modal-body md-2">
+
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>MONDAY</strong> : {{restDetails.operating_hours['Monday']}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>TUESDAY </strong> : {{restDetails.operating_hours['Tuesday']}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>WEDNESDAY</strong> : {{restDetails.operating_hours['Wednesday']}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>THURSDAY</strong> : {{restDetails.operating_hours['Thursday']}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>FRIDAY</strong> : {{restDetails.operating_hours['Friday']}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>SATURDAY</strong> : {{restDetails.operating_hours['Saturday']}}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>SUNDAY</strong> : {{restDetails.operating_hours['Sunday']}}
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--review-->
+        <p class="mt-2">
+          <button class="btn btn-dark" type=" button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample"
+            aria-expanded="false" aria-controls="collapseWidthExample">
+            Customer Reviews
+          </button>
+        </p>
+
+        <div class="collapse" id="collapseWidthExample">
+          <div class="card card-body bg-dark text-light">
+            <div class=" mt-2" *ngFor="let item of restDetails.reviews">
+              <h5>{{item['name']}} ({{item['date']}}) : </h5>
+              <h6>
+                <strong>Rating</strong> : {{item['rating']}}
+              </h6>
+              <p>
+                <strong>Comments</strong> : {{item['comments']}}
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</section>

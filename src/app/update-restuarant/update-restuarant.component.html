@@ -1,0 +1,106 @@
+<div class="container mt-5 mb-3 border border-light p-3">
+  <form #updateRestForm="ngForm">
+    <div class="row">
+      <h3 class="text-light text-center mb-3">
+        Update Restuarant Details</h3>
+
+      <div class="col-md-6">
+        <div class="mb-2">
+          <input [(ngModel)]="restDetails.id" name=" id" placeholder=" Restuarant id" type="text" class="form-control">
+        </div>
+
+        <div class="mb-2">
+          <input [(ngModel)]="restDetails.neighborhood" name=" neighborhood" placeholder="Restuarant neighborhood"
+            class="form-control">
+        </div>
+
+
+        <div class="mb-2">
+          <input [(ngModel)]="restDetails.photograph" name=" photograph" placeholder="Restuarant Image" type="text"
+            class="form-control">
+        </div>
+
+
+        <div class="mb-2">
+          <label class="text-light mb-2" for="">
+            Operating hours</label>
+
+          <input [(ngModel)]="restDetails['operating_hours']['Monday']" name=" Monday" placeholder="Monday" type="text"
+            class="form-control mb-2">
+
+          <input [(ngModel)]="restDetails['operating_hours']['Tuesday']" name=" Tuesday" placeholder="Tuesday"
+            type="text" class="form-control mb-2">
+
+          <input [(ngModel)]="restDetails['operating_hours']['Wednesday']" name=" Wednesday" placeholder="Wednesday"
+            type=" text" class="form-control mb-2">
+
+          <input [(ngModel)]="restDetails['operating_hours']['Thursday']" name=" Thursday" placeholder="Thursday"
+            type="text" class="form-control mb-2">
+
+          <input [(ngModel)]="restDetails['operating_hours']['Friday']" name=" Friday" placeholder="Friday" type="text"
+            class="form-control mb-2">
+
+          <input [(ngModel)]="restDetails['operating_hours']['Saturday']" name=" Saturday" placeholder="Saturday"
+            type="text" class="form-control mb-2">
+
+          <input [(ngModel)]="restDetails['operating_hours']['Sunday']" name=" Sunday" placeholder="Sunday" type="text"
+            class="form-control mb-2">
+
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="mb-2">
+          <input [(ngModel)]="restDetails.name" name=" rName" placeholder="Restuarant Name" type="text"
+            class="form-control">
+        </div>
+
+        <div class="mb-2">
+          <input [(ngModel)]="restDetails.address" name=" address" placeholder="Restuarant Address" type="text"
+            class="form-control">
+        </div>
+
+        <div class="mb-2">
+          <input [(ngModel)]="restDetails.cuisine_type" name=" cuisine_type" placeholder="Restuarant cuisine"
+            type="text" class="form-control">
+        </div>
+
+
+        <div class="mb-2">
+
+          <div *ngFor="let item of restDetails.reviews">
+            <label class="text-light mb-2" for="">
+              Reviews</label>
+            <input [(ngModel)]="item['name']" name=" rvname" placeholder="Name" type="text" class="form-control mb-2">
+
+            <input [(ngModel)]="item['date']" name=" date" placeholder="Date" type="text" class="form-control mb-2">
+
+            <input [(ngModel)]="item['rating']" name=" Rating" placeholder="Rating" type="text"
+              class="form-control mb-2">
+
+            <input [(ngModel)]="item['comments']" name=" comments" placeholder="Comments" type="text"
+              class="form-control mb-2">
+          </div>
+
+        </div>
+
+
+        <div class="mb-2">
+          <label class="text-light mb-2" for="">
+            Location</label><br>
+          <input [(ngModel)]="restDetails['latlng']['lat']" name=" lat" placeholder="Latitude" type="text"
+            class="form-control mb-2">
+          <input [(ngModel)]="restDetails['latlng']['lng']" name=" lng" placeholder="Longitude" type="text"
+            class="form-control mb-2">
+
+        </div>
+
+
+        <div class="text-center mb-2">
+          <button (click)="updateRestuarant(updateRestForm)" type=" submit" class="btn btn-dark">
+            Update Restuarant</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
